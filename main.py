@@ -22,12 +22,12 @@ def Getframe(path):
 
     #make folder
     folder_name = f"{path}_frameOutput"
-    
-    #repeat check
-    repeat_cnt = 0
 
-    if os.path.exists(folder_name):
-        folder_name = f"{folder_name}_1"
+    while True:
+        if os.path.exists(folder_name):
+            folder_name = f"{folder_name}_1"
+        else:
+            break
 
     os.makedirs(folder_name)
 
@@ -44,7 +44,9 @@ def Getframe(path):
             break
 
         f_cnt += 1
-            
+
+    print(f"DONE: {out_cnt} FILES HAS BEEN OUTPUT TO PATH: '{folder_name}/'")       
+    input("Press Enter to continue...")
 
 if __name__ == "__main__":
     fileName = input("Video Filename:")
